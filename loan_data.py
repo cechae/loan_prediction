@@ -33,7 +33,7 @@ def preprocess_data():
     sc = MinMaxScaler()
     X= sc.fit_transform(x)
     X_train,X_test,y_train,y_test = train_test_split(X,y, test_size= 0.2, random_state= 0)
-    classifier = SVC(kernel = 'rbf', gamma= 0.2)
+    classifier = sklearn.SVC(kernel = 'rbf', gamma= 0.2)
     classifier.fit(X_train, y_train)
     return classifier
     
