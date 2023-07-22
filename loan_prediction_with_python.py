@@ -12,8 +12,8 @@ df["Loan_Status"] = df.Loan_Status.map({'Y':1, 'N':0}).astype(int)
 #Gender Encoding
 df = df.replace({"Gender":{"Male":1, "Female":0}})
 df = df.replace({"Married":{"Yes":1, "No":0}})
-df["Dependents"] = df['Dependents'].replace('3+', '3')
-df["Dependents"] = pd.to_numeric(df['Dependents'], errors='coerce')
+# df["Dependents"] = df['Dependents'].replace('3+', '3')
+# df["Dependents"] = pd.to_numeric(df['Dependents'], errors='coerce')
 a = df['Self_Employed'].value_counts()
 df = df.replace({"Self_Employed":{"Yes":1, "No":0}})
 df['Education'].value_counts()
@@ -63,15 +63,17 @@ df.dropna(how="any")
 classifier = SVC(kernel = 'rbf', gamma= 0.2)
 classifier.fit(X_train, y_train)
 y_pred = classifier.predict(X_test)
-from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred)
+# from sklearn.metrics import confusion_matrix
+# cm = confusion_matrix(y_test, y_pred)
 
-print(X_test)
+
+
+
 #make a prediction
 
 
 # Applying k-Fold Cross Validation
-from sklearn.model_selection import cross_val_score
-accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10)
-print("Accuracy: {:.2f} %".format(accuracies.mean()*100))
-print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
+# from sklearn.model_selection import cross_val_score
+# accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10)
+# print("Accuracy: {:.2f} %".format(accuracies.mean()*100))
+# print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
