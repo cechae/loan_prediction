@@ -1,9 +1,9 @@
 import pandas as pd
-
+from sklearn.svm import SVC
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 
-from sklearn.svm import SVC
+
 # function that does preprocessing for the Data
 def preprocess_data():
     df = pd.read_csv("loan_training.csv")
