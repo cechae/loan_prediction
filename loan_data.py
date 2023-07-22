@@ -1,9 +1,9 @@
 import pandas as pd
-import sklearn
-# from sklearn.preprocessing import MinMaxScaler
-# from sklearn.model_selection import train_test_split
 
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
 
+from sklearn.svm import SVC
 # function that does preprocessing for the Data
 def preprocess_data():
     df = pd.read_csv("loan_training.csv")
@@ -33,7 +33,7 @@ def preprocess_data():
     sc = MinMaxScaler()
     X= sc.fit_transform(x)
     X_train,X_test,y_train,y_test = train_test_split(X,y, test_size= 0.2, random_state= 0)
-    classifier = sklearn.SVC(kernel = 'rbf', gamma= 0.2)
+    classifier = SVC(kernel = 'rbf', gamma= 0.2)
     classifier.fit(X_train, y_train)
     return classifier
     
